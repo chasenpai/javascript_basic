@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+
+        //논리형 반환
+        alert(3 > 1); //t
+        alert(3 == 3); //t
+        alert(3 != 3); //f
+
+        let value = 5 < 3;
+        alert(value); //f
+
+
+        //문자열 비교
+        alert('A' > 'Z'); //f, 사전 뒤쪽의 문자열이 앞쪽 문자열보다 크다고 판단
+        alert('Frow' > 'Frog'); //t, 문자열의 첫 글자가 다른 문자열의 첫 글자보다 크다고 판단
+        alert('Bee' > 'Be'); //t, 문자열 길이가 더 긴 쪽이 크다고 판단
+
+
+        //다른 형 비교
+        alert('10' > 5); //t, 문자열 '10'이 숫자 10으로 변환된 후 비교
+        alert(1 == true); //t, true는 1, false는 0으로 변환된 후 비교
+
+
+        //일치 연산자
+        alert(0 == false); //t, ==는 0과 false를 구분 못함
+        alert(0 === false) //f, 피연산자의 자료형이다름
+
+        alert(null === undefined); //f, 자료형이다름
+
+
+        //null vs 0
+        alert( null > 0 );  // f
+        alert( null == 0 ); // f, 동등 연산자는 피연산자가 0 , undefined 일 때 형변환을 하지 않음
+        alert( null >= 0 ); // t, 비교 연산자에 의해 null 이 숫자로 변환
+
+        //undefined 는 다른 값과 비교하면 안됌
+
+    </script>
+
+</body>
+</html>

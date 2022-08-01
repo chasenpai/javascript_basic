@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+
+        //문자형으로 변환
+        let value = true;
+        alert(typeof value + " 타입"); //boolean
+
+        value = String(value);
+        alert(typeof value  + " 타입"); //string
+
+        
+        //숫자형으로 변환
+        alert("10" / "5") // = 2 , 문자열이 숫자형으로 자동변환
+
+        let num = "123456";
+        alert(typeof num + " 타입") //string
+
+        num = Number(num);
+        alert(typeof num + " 타입"); //number
+
+        alert(Number(true)); //1
+        alert(Number(false)); //0
+
+
+        //논리형으로 변환
+        alert(Boolean(1)); //true
+        alert(Boolean(0)); //false
+        alert(Boolean("string")) //true
+        alert(Boolean("")) //false , 숫자 0, null 등의 빈값은 false, 그 외 true
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        /**
+        //for 반복문
+        for(let i = 0; i < 5; i++){
+            alert(i);
+        }
+
+        let j = 0;
+        for(; j < 5; j++){ //구성요소 생략
+            alert(j);
+        }
+        
+
+        //while 반복문
+        let i = 0;
+        
+        while(i < 5){
+            alert(i);
+            i++;
+        }
+
+        while(i){ //i가 0이되면 falsy
+            alert(i);
+            i--;
+        }
+
+        //do while 반복문
+
+        let j = 0;
+
+        do{
+            alert(i); //한번 실행되고 조건을 확인
+            i++;
+        } while(i < 5);
+        
+
+        //반복문 탈출
+        let sum = 0;
+
+        while(true){
+            let num = +prompt("숫자를 입력하세요.");
+            if(num == 0){
+                break;
+            }
+            sum += num;
+        }
+        alert('합계 : ' + sum);
+        **/
+
+        //반복 넘어가기
+        for(let i = 0; i < 10; i++){
+            if(i % 2 == 0){
+                continue;
+            }
+            alert(i);
+        }
+
+
+
+
+
+
+
+    </script>
+
+</body>
+</html>

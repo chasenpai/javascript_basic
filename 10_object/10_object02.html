@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+
+        //참조
+        /**
+        let user = { name : 'honggildong'};
+
+        let admin = user;
+
+        admin.name = 'gogildong';
+
+        alert(user.name);
+
+
+        //참조에 의한 비교
+        let a = {};
+        let b = a;
+
+        alert(a == b); //t, 두 변수는 같은 객체를 참조함
+        alert(a === b);
+
+        let c = {};
+
+        alert(a == b); //f, 독립된 두 객체
+        
+
+        //객체 복사
+        let user = {
+            name : 'honggildong',
+            age : 25,
+            location : 'busan'
+        };
+
+        let clone = {};
+
+        for(let key in user){
+            clone[key] = user[key]; //빈 객체에 user 프로퍼티를 복사
+        };
+        
+        clone.name = 'gogildong';
+
+        alert(clone["name"]);
+        alert(user["name"]); //user 프로퍼티의 값이 변경되지 않음
+        **/
+
+
+        //객체 병합 assign
+        let user = {
+            name : 'honggildong'
+        };
+
+        let role = {
+            role : 'admin'
+        };
+
+        Object.assign(user, role); //role의 프로퍼티를 user로 복사, 동일한 값이 있을 경우 값이 덮어씌워진다
+
+        alert(user.name);
+        alert(user.role);
+
+        let clone = Object.assign({}, user);
+
+        alert(clone.role); //assign을 사용해서 간단하게 객체 복사 가능
+
+
+
+
+
+    </script>
+
+</body>
+</html>
