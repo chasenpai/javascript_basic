@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <!--<input type="text" onkeyup="this.value=this.value.replace(/[^0-9a-zA-Z]/g,'');">-->
+    <br>
+    <input type="text" onkeyup="noHangle(this);">
+
+
+    <script>
+
+        function noHangle(obj){
+            var regexp = /[^0-9a-zA-Z]/g; //영문 숫자
+            obj.value = obj.value.replace(regexp,'');
+        };
+
+        /**
+        영문 숫자 /[^0-9a-zA-Z]/g
+        숫자 /^[0-9]/g
+        영문 /[^a-z]/g
+        한글 /[a-z0-9]|[ \[\]{}()<>?|`~!@#$%^&*-_+=,.;:\"'\\]/g
+        한글 숫자 /[^ㄱ-ㅎ가-힣0-9]/g
+        이메일 /^[-A-Za-z0-9_]+[-A-Za-z0-9_.]*[@]{1}[-A-Za-z0-9_]+[-A-Za-z0-9_.]*[.]{1}[A-Za-z]{1,5}$/
+        전화번호 /^\d{2,3}-\d{3,4}-\d{4}$/
+
+        8자 이상 16자 이하의 숫자, 영문자, 특수문자를 포함한 비밀번호
+        (?=.*[0-9])(?=.*[a-zA-Z])(?=.*\\W)(?=\\S+$).{8,16}
+        **/
+
+    </script>
+
+</body>
+</html>
