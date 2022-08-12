@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+
+        //객체(Object)
+
+        let batman = {
+        //   key    value      
+            name : 'bruce',
+            age : 33,
+        };
+
+
+        //접근
+
+        console.log(batman.name); //clark
+        console.log(batman['age']) //33
+
+
+        //추가
+
+        batman.gender = 'male';
+        batman['hairColor'] = 'black';
+
+
+        //삭제
+
+        delete batman.hairColor;
+
+
+        //단축 프로퍼티
+
+        let name = 'kim';
+        let age = 25;
+
+        let user = {
+            name,
+            age,
+            gender : 'male',
+        }
+
+
+        //프로퍼티 존재 여부 확인
+
+        console.log('gender' in user); //true
+
+
+        //for ~ in 반복문
+
+        for(let key in user){
+            console.log(`${key} : ${user[key]}`);
+        }
+
+
+        //함수로 객체 생성
+        
+        function makeObject(name, age){
+            return {
+                name : name,
+                age : age,
+                hobby : 'game',
+            }
+        }
+
+        let lee = makeObject('lee', 25);
+
+        console.log(lee);
+        
+
+        //
+
+        function isAdult(user){
+            if(!('age' in user) || user.age <= 19){ //user에 age가 없거나 
+                return false;
+            }
+            return true;
+        }
+
+        let user1 = {
+            name : 'kim',
+            age : 25,
+        };
+
+        let user2 = {
+            name : 'lee',
+        };
+
+        console.log(isAdult(user1)); //true
+        console.log(isAdult(user2)); //false
+
+
+
+
+
+    </script>
+    
+</body>
+</html>

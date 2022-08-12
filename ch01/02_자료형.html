@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+
+        //문자형 String
+
+        const name1 = 'kim' 
+        const name2 = "kim"
+        const name3 = `kim`
+
+        const msg1 = "I'm a boy.";
+        const msg2 = 'I\'m a boy.'; // \n은 '
+        const msg3 = `제 이름은 ${name1} 입니다`; //변수
+        
+        console.log(msg3);
+
+        const msg4 = `제 나이는 ${20+5} 살 입니다`; //표현식
+
+        console.log(msg4);
+
+        const str1 = '안녕하세요';
+        const str2 = '반갑습니다';
+
+        console.log(str1 + str2); //문자열이 합쳐짐, 숫자도 문자열로 합쳐짐
+
+
+        //숫자형 Number
+
+        const age = 30;
+        const PI = 3.14;
+
+        const x = 1/0;
+        const y = name1/2;
+
+        console.log(x); //infinity - 무한대
+        console.log(y); //NaN - 숫자가 아님
+
+
+        //논리형 Boolean
+
+        const a = true;
+        const b = false;
+
+        console.log(name1 == 'kim'); //true
+        console.log(age > 30); //false
+
+
+        //null, undefined
+
+        let num;
+        console.log(num); //undefined - 정의되지 않음
+
+        let user = null; //존재하지 않음
+
+
+        //typeof 연산자
+
+        console.log(typeof 3); //number
+        console.log(typeof 'lee'); //string
+        console.log(typeof true); //boolean
+        console.log(typeof null); //object
+        console.log(typeof undefined); //undefined
+
+
+                
+
+
+        
+
+
+    </script>
+
+</body>
+</html>

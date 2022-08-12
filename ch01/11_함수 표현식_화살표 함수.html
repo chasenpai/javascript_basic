@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+
+        //함수 선언문 & 함수 표현식
+
+        //함수 선언문
+
+        sayHi(); //어디서든 호출 가능(호이스팅)
+
+        function sayHi(){
+            console.log("hi~!");
+        }
+
+        //함수 표현식
+        
+        //sayBye(); //호출 불가 - 코드에 도달하면 생성
+
+        let sayBye = function(){
+            console.log("bye~!");
+        }
+
+
+        //화살표 함수
+
+        let add1 = function(n1, n2){  //함수 표현식
+            return n1 + n2;
+        }
+
+        let add2 = (n1, n2) => { //화살표 함수
+            return n1 + n2;
+        }
+
+        let add3 = (n1, n2) => ( //코드가 리턴문 뿐이라면
+            n1 + n2
+        )
+
+        let add4 = (n1, n2) => n1 + n2; //코드가 return문이 한 줄 이라면
+
+        let sayHello = name => `hello, ${name}`; //인수가 하나라면
+
+        let showError = () => { //인수가 없는 함수는 괄호 생략 불가
+            alert('error!!');
+        } 
+
+
+
+
+    </script>
+
+</body>
+</html>

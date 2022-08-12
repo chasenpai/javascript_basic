@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+
+        //매개변수가 없는 함수
+
+        function error(){
+            alert('에러 발생!');
+        }
+
+        //error(); //함수 호출
+
+
+        //매개변수가 있는 함수
+
+        // function sayHello(name){
+        //     let msg = 'hello'; //지역 변수
+        //     if(name){
+        //         msg = `hello, ${name} !`;
+        //     }
+        //     console.log(msg);
+        // }
+
+        // sayHello('kim');
+        // sayHello('lee');
+        // sayHello('choi');
+        // sayHello();
+        
+        //console.log(msg) //error
+
+
+        //전역 변수와 지역 변수
+
+        let msg = 'hello'; //전역 변수
+
+        console.log('함수 호출 전');
+        console.log(msg)
+
+        function sayHello(name){
+            if(name){
+                msg = `hello ${name} !`;
+            }
+            console.log('함수 내부');    
+            console.log(msg);
+        }
+
+        sayHello('kim');
+        console.log('함수 호출 후');
+        console.log(msg);
+
+        console.log("-----");
+
+
+        let msg1 = 'hello';
+        console.log(msg1);
+
+        function sayHello1(name){
+            let msg1 = 'hello'; //지역 변수
+            console.log(`${msg1} ${name}`);
+        }
+
+        sayHello1('lee');
+        console.log(msg1); //전역 변수
+
+        console.log("-----");
+
+
+        //매개변수의 기본값
+
+        function sayHi(name = 'friend'){
+            let msg = `hello, ${name}`;
+            console.log(msg);
+        }
+
+        sayHi(); //hello, friend
+        sayHi('choi'); //hello choi
+
+
+        //return
+
+        function add(n1, n2){
+            return n1 + n2;
+        }
+
+        let result = add(10, 50);
+        console.log(result); //60
+
+
+        /**
+         * 한번에 한 작업에 집중
+         * 읽기 쉽고 어떤 동작인지 알 수 있게 네이밍
+        **/
+
+    </script>
+
+</body>
+</html>

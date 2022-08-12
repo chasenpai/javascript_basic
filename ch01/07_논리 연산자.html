@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+
+        // ||(or)
+
+        let name = 'kim';
+        let age = 15;
+
+        if(name == 'kim' || age > 19){
+            console.log('통과');
+        }
+
+
+        // &&(and)
+
+        if(name == 'kim' && age > 19){
+            console.log('통과');
+        }else{
+            console.log('불합격');
+        }
+
+
+        //Not(!)
+
+        // let age1 = prompt('나이는 : ');
+
+        // let isAdult = age1 > 19;
+
+        // if(!isAdult){
+        //     console.log('미성년자입니다.')
+        // }
+
+
+        //우선순위
+
+        let gender1 = 'female';
+        let name1 = 'lee';
+        let isAdult1 = true;
+
+        if(gender1 === 'male' && name1 === 'lee' || isAdult1){ // and > or
+            console.log('통과');
+        }else{
+            console.log('불합격');
+        }
+
+
+    </script>
+
+</body>
+</html>

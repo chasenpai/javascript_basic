@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+
+        //메소드
+
+        let batman = {
+            name : 'bruce',
+            age : 33,
+            // fly : function(){
+            //     console.log('날아갑니다.');
+            // }
+            fly (){ //줄여쓰기
+                console.log('날아갑니다.');
+            }
+        }
+
+        batman.fly(); //날아갑니다
+
+
+        //this
+
+        let boy = {
+            name : 'kim',
+            showName : function() {
+                //console.log(boy.name);
+                console.log(this.name); //this는 해당 객체를 가리킴
+            }
+            //화살표 함수는 this는 window를 가리킨다
+        };
+
+        let man = boy;
+
+        boy = null;
+
+        man.showName();
+
+
+        function makeUser(name, age){
+            return {
+                name : name,
+                age : age,
+                sayName : function(){
+                    console.log(`my name is ${this.name}`);
+                }
+            };
+        }
+
+        let lee = makeUser('lee', 25);
+        let choi = makeUser('choi', 30);
+
+        lee.sayName(); //my name is lee
+        choi.sayName(); //my name is choi
+
+       
+
+    </script>
+
+</body>
+</html>
