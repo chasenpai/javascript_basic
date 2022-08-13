@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+
+        //계산된 프로퍼티(Computed property)
+
+        let a = 'age';
+
+        // const user = {
+        //     name : 'kim',
+        //     [a] : 25, //계산된 프로퍼티
+        // }
+
+
+        //Object.assign() - 객체 복제
+
+        const user = {
+            name : 'kim',
+            age : 25,
+        }
+
+        const cloneUser = user; //객체 복사 x 참조값만 복사
+
+        const newUser = Object.assign({}, user); //객체 복사
+
+        newUser.name = 'lee';
+
+        console.log(user.name); //kim
+
+        const newUser2 = Object.assign({ gender : 'male' }, user); //초기값 설정, key가 같으면 덮어씀
+
+        console.log(newUser2);
+
+
+        //Object.keys() -  키 배열 반환
+
+        console.log(Object.keys(user)); //name, age
+
+
+        //Object.values() - 값 배열 반환
+
+        console.log(Object.values(user)); //kim, 25
+
+
+        //Objcet.entries() - 키와 값 배열 반환
+
+        console.log(Object.entries(user));
+
+
+        //Object.fromEntries() - 배열을 객체로 반환
+
+        let arr = [
+            ['name', 'choi'],
+            ['age', 30]
+        ];
+
+        console.log(Object.fromEntries(arr));
+
+
+        
+
+
+
+
+
+    </script>
+
+</body>
+</html>

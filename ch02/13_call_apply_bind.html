@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+
+        //call, apply, bind - 함수 호출 방식과 관계없이 this를 지정할 수 있음
+
+        //call - 모든 함수에서 사용할 수 있으며 this를 특정값으로 지정할 수 있다.
+
+        const kim = {
+            name : 'kim',
+        };
+
+        const lee = {
+            name : 'lee',
+        };
+
+        function showThisName(){
+            console.log(this.name); //여기서 this는 window를 가르킴
+        }
+
+        showThisName(); // x
+        showThisName.call(kim); //kim - 해당 객체의 메소드인 것 처럼 사용
+        showThisName.call(lee); //lee
+
+
+        // function update(birthYear, job){
+        //     this.birthYear = birthYear;
+        //     this.job = job;
+        // };
+
+        //update.call(kim, 1997, 'doctor');
+
+        //console.log(kim); //{name: 'kim', birthYear: 1997, job: 'doctor'}
+
+
+        //apply - 함수 매개변수를 처리하는 방법을 제외하면 call과 완전히 같다. 매개변수를 배열로 받음
+
+        //update.apply(lee, [1998, 'teacher']);
+
+        //console.log(lee); //{name: 'lee', birthYear: 1998, job: 'teacher'}
+
+
+        let nums = [3, 10, 1, 6, 4];
+
+        //const minNum = Math.min(nums); //NaN
+        //const maxNum = Math.max(nums); //NaN
+
+        const minNum = Math.min.apply(null, nums);
+
+        console.log(minNum); //1
+
+        const maxNum = Math.max.call(null, ...nums);
+
+        console.log(maxNum); //10
+
+
+        //bind - 함수의 this 값을 영구히 바꿀 수 있다
+
+        const park = {
+            name : 'park',
+        };
+
+        function update(birthYear, job){
+            this.birthYear = birthYear;
+            this.job = job
+        }
+
+        const updatePark = update.bind(park);
+        updatePark(1995, 'singer');
+        console.log(park); //{name: 'park', birthYear: 1995, job: 'singer'}
+
+        
+        //
+
+        const user = {
+            name : 'choi',
+            showName : function(){
+                console.log(`hello, ${this.name}`);
+            },
+        };
+
+        user.showName(); //hello, choi
+
+        let fn = user.showName;
+
+        fn(); //hello, - this가 없음
+
+        fn.call(user); //hello, choi
+        fn.apply(user); //hello, choi
+
+        let boundFn = fn.bind(user);
+
+        boundFn(); //hello, choi
+
+    </script>
+
+</body>
+</html>

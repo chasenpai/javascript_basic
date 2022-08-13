@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   
+    <script>
+
+        //프로미스(Promise)
+
+        //                       성공     실패
+        // const pr = new Promise((resolve, reject) => {
+        //     setTimeout(() => { //state - pending(대기), result - undefined
+        //         resolve('ok') //3초 뒤, state - fulfilled(이행됨), result - 'ok'
+        //     }, 3000)
+        // }) 
+
+        //어떤 일이 완료된 뒤 실행되는 함수를 콜백 함수라 부른다
+
+        // pr.then(
+        //     function(result){
+        //         console.log(result + '가지러 가자'); //이행 되었을 때 실행
+        //     }
+        // ).catch(
+        //     function(err){
+        //         console.log('다시 주문해주세요..'); //거부 되었을 때 실행
+        //     }
+        // ).finally(
+        //     function(){
+        //         console.log('--- 주문 끝 ---'); //성공실패 여부에 상관없이 실행
+        //     }
+        // )
+
+
+        // const pr = new Promise((resolve, reject) => {
+        //     setTimeout(() => {
+        //         //resolve('ok');
+        //         reject(new Error('error...'));
+        //     }, 1000);
+        // });
+
+        // console.log('시작');
+
+        // pr
+        // .then((result) => {
+        //     console.log(result);
+        // })
+        // .catch((err) => {
+        //     console.log(err);
+        // })
+        // .finally(() => {
+        //     console.log('끝')
+        // });
+
+
+        //콜백 함수 이용
+
+        // const f1 = (callback) => {
+        //     setTimeout(() =>{
+        //         console.log('1번 주문 완료.');
+        //         callback();
+        //     }, 1000);
+        // };
+
+        // const f2 = (callback) => {
+        //     setTimeout(() =>{
+        //         console.log('2번 주문 완료.');
+        //         callback();
+        //     }, 3000);
+        // };
+
+        // const f3 = (callback) => {
+        //     setTimeout(() =>{
+        //         console.log('3번 주문 완료.');
+        //         callback();
+        //     }, 2000);
+        // };
+
+
+        //console.log('시작');
+
+        //콜백 지옥
+
+        // f1(function(){
+        //     f2(function(){
+        //         f3(function(){
+        //             console.log('끝')
+        //         })
+        //     })
+        // })
+
+
+        //프로미스 이용
+
+        const f1 = () =>{
+            return new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    resolve('1번 주문 완료.');
+                }, 1000)
+            });
+        };
+
+        const f2 = (message) =>{
+            console.log(message);
+            return new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    resolve('2번 주문 완료.');
+                }, 3000)
+            });
+        };
+
+        const f3 = (message) =>{
+            console.log(message);
+            return new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    resolve('3번 주문 완료.');
+                }, 2000)
+            });
+        };
+
+        console.log('시작');
+
+        //프로미스 체이닝
+
+        // f1()
+        // .then((resolve) => f2(resolve))
+        // .then((resolve) => f3(resolve))
+        // .then((resolve) => console.log(resolve))
+        // .catch(console.log)
+        // .finally(() => {
+        //     console.log('끝');
+        // });
+
+
+        //Promise.all - 모든작업이 끝나야 then 실행
+
+        // Promise.all([f1(), f2(), f3()])
+        // .then((resolve) => {
+        //     console.log(resolve);
+        // })
+
+
+        //Promise.race - 하나라도 완료되면 종료
+        Promise.race([f1(), f2(), f3()])
+        .then((resolve) => {
+            console.log(resolve);
+        })
+
+
+        
+
+
+
+
+
+
+
+
+    </script>
+
+</body>
+</html>

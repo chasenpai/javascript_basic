@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+
+        //splice() - 특정 요소를 지움/추가
+
+        let arr = [1, 2, 3, 4, 5];
+
+        arr.splice(1,2); //n - 시작, m - 개수
+
+        console.log(arr); //[1, 4, 5]
+
+        arr.splice(0, 1, 100, 200); //n, m, 추가할 요소
+
+        console.log(arr); //[100, 200, 4, 5]
+
+        //let result = arr.splice(0, 2); //삭제된 요소 반환
+
+        //console.log(result); //[100, 200]
+
+
+        //slice() - n 부터 m 까지 반환
+
+        let arr2 = [1, 2, 3, 4, 5];
+
+        arr.slice(1,4); //[2, 3, 4]
+
+        let arr3 = arr2.slice(); //배열이 복사됨
+
+
+        //concat() - 합쳐서 새로운 배열 반환
+
+        let arr4 = [1, 2];
+
+        console.log(arr4.concat([3, 4])); //[1, 2, 3, 4]
+
+
+
+        //forEach - 반복문
+
+        let users = ['kim', 'lee', 'choi'];
+
+        users.forEach((item, index) => { //item - 요소, index - 번호, arr - 배열자체
+            console.log(`${index + 1} : ${item}`);
+        });
+
+
+        //indexOf & lastIndetOf
+
+        let arr5 = [1, 2, 3, 4, 5, 1, 2, 3];
+
+        arr5.indexOf(3); //2
+        arr5.indexOf(3, 3); //7
+        arr5.lastIndexOf(3); //7
+
+
+        //includes() - 포함하는지 확인
+
+        console.log(arr5.includes(5)); //true;
+        console.log(arr5.includes(6)); //false;
+
+
+        //find() & findIndex()
+        //첫번째 true 값만 반환하고 끝, 만약 없으면 undefined 반환
+
+        // let arr6 = [1, 2, 3, 4, 5];
+
+        // const result = arr6.find((item) => {
+        //     return item % 2 === 0;
+        // });
+
+        // console.log(result); //2
+
+        
+        let userList = [
+            {name: 'kim', age:25},
+            {name: 'lee', age:17},
+            {name: 'choi', age:33},
+        ];
+
+        const result2 = userList.find((item) => {
+            return item.age < 19;
+        })
+
+        console.log(result2); //'lee'
+
+
+        //filter - 만족하는 모든 요소를 배열로 반환
+
+        let arr6 = [1, 2, 3, 4, 5];
+
+        const result = arr6.filter((item) => {
+            return item % 2 === 0;
+        });
+
+        console.log(result); //[2, 4]
+
+
+        //reverse() - 역순으로 재정렬
+
+        let arr7 = [1, 2, 3, 4, 5];
+
+        console.log(arr7.reverse()); //[5, 4, 3, 2, 1]
+
+
+        //map() - 함수를 받아 특정 기능을 실행하고 새로운 배열 반환
+
+        let userList2 = [
+            {name: 'kim', age:25},
+            {name: 'lee', age:17},
+            {name: 'choi', age:33},
+        ];
+
+        let newUserList = userList2.map((user, index) => {
+            return Object.assign({}, user, {
+                id : index + 1,
+                isAdult : user.age > 19,
+            });
+        });
+
+        console.log(newUserList);
+        console.log(userList2);
+
+
+        //join, split
+
+        let arr8 = ['안녕', '나는', '짱구야'];
+
+        console.log(arr8.join(" ")); //'안녕 나는 짱구야'
+
+
+        let users2 = 'kim, lee, choi, park';
+
+        console.log(users2.split(", ")); //['kim', 'lee', 'choi', 'park']
+
+        
+        //Array.isArray() - 배열인지 아닌지 확인
+
+        let user = {
+            name : 'choi',
+            age : 30,
+        };
+
+        let userList3 = ['kim', 'lee', 'park'];
+        
+        //배열은 객체기 때문에 typeof로는 안됨
+        console.log(typeof user); //Object
+        console.log(typeof userList3); //Objce
+
+        console.log(Array.isArray(user)); //false
+        console.log(Array.isArray(userList3)); //true
+
+
+        
+
+
+        
+
+
+
+        
+
+
+
+
+
+
+
+    </script>
+
+</body>
+</html>

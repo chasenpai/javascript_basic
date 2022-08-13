@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+
+        //toString() 10진수 => 2/16진수
+
+        // let num = 10;
+
+        // num.toString(); //'10'
+
+        // console.log(num.toString(2)); //'1010'
+
+        // let num2 = 255;
+
+        // console.log(num2.toString(16)); //'ff'
+
+        
+        //Math.ceil() - 올림
+
+        let num1 = 5.1;
+        let num2 = 5.7;
+
+        console.log(Math.ceil(num1)) //6
+        console.log(Math.ceil(num2)) //6
+
+
+        //Math.floor() - 내림
+
+        console.log(Math.floor(num1)) //5
+        console.log(Math.floor(num2)) //5
+
+
+        //Math.round() - 반올림
+
+        console.log(Math.round(num1)) //5
+        console.log(Math.round(num2)) //6
+
+
+        //toFixed() - 소수점 자리수
+
+        let num3 = 30.1234;
+
+        console.log(num3.toFixed(2)) //30.12
+        console.log(num3.toFixed(0)) //30
+        console.log(num3.toFixed(6)) //30.123400 - toFixed()는 문자열로 반환함
+
+
+        //isNaN();
+
+        let x = Number('x'); //NaN
+        // x == NaN - false
+        // x === NaN - false
+        // NaN == NaN - false
+
+        console.log(isNaN(x)) //true
+        console.log(isNaN(3)) //false
+
+
+        //parseInt() - 문자를 숫자로
+
+        let margin = '10px';
+
+        console.log(parseInt(margin)); //10 - 나머지 문자는 없앰
+        console.log(Number(margin)); //NaN
+
+        let redColor = 'f3';
+
+        console.log(parseInt(redColor)); //Nan - 문자로 시작하면
+        console.log(parseInt(redColor, 16)); //243 - 16진수로 표현
+        console.log(parseInt('11', 2)); //3 - 2진수를 10진수로
+
+
+        //parseFloat() - 부동 소수점 반환
+
+        let padding = '18.5%';
+
+        console.log(parseInt(padding)); //18
+        console.log(parseFloat(padding)); //18.5
+
+
+        //Math.random() - 0 ~ 1사이의 무작위 숫자 생성
+
+        console.log(Math.random());
+
+        //1 ~ 100을 뽑고 싶다면
+
+        console.log(Math.floor(Math.random()*100)+1);
+
+
+        //Math.max() & min() - 최소 최대값
+
+        console.log(Math.max(10, 2, 80, 232, 5)); //232
+        console.log(Math.min(10, 2, 80, 232, 5)); //2
+
+
+        //Math.abs() - 절대값
+
+        console.log(Math.abs(-10)); //10
+
+
+        //Math.pow() - 제곱
+
+        console.log(Math.pow(2, 10)); //1024
+
+
+        //Math.sqrt() - 제곱근
+
+        console.log(Math.sqrt(16)); //4
+
+
+    </script>
+
+</body>
+</html>

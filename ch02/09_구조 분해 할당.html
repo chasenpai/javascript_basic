@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+
+        /** 
+          * 구조 분해 할당(Destructuring assignment)
+          * 배열이나 객체의 속성을 분해해서
+          * 그 값을 변수에 담을 수 있게 하는 표현식
+          **/
+
+        
+        //배열 구조 분해
+          
+        //let [x, y] = [1, 2];
+        
+        //console.log(x, y); //1, 2
+
+        let users = ['kim', 'lee', 'park'];
+
+        //let [user1, user2, user3] = users;
+
+        //console.log(user1); //'kim'
+
+
+        //let [a, b, c] = [1, 2]; //c - undefined
+
+        let[a=3, b=4, c=5] = [1, 2]; //기본값
+
+        console.log(a); //1
+        console.log(b); //2
+        console.log(c); //5
+
+
+        let [user1, ,user2] = ['kim', 'lee', 'park', 'choi']; //일부 반환값 무시
+
+        console.log(user1); //kim
+        console.log(user2); //park
+
+
+        //바꿔치기
+
+        let x = 1; 
+        let y = 2;
+        let z = x;
+        x = y;
+        y = z;
+        console.log(x); //2
+        console.log(y); //1
+
+        //구조 분해 할당으로 간단하게 바꿔치기
+
+        //[x, y] = [y, x]
+
+
+        //객체 구조 분해
+
+        let user = {
+            name : 'kim',
+            age : 25,
+        }
+
+        //let {name, age} = user;
+        //let {name : userName, age : userAge} = user; //새로운 변수 이름 할당
+
+        //console.log(name); //kim
+        //console.log(age); //25
+
+        let {name, age, gender='male'} = user; //기본값
+
+        console.log(gender); //male
+
+
+
+
+
+
+
+    </script>
+
+</body>
+</html>

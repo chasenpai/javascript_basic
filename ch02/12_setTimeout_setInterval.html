@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+
+        //setTimeout - 일정 시간이 지난 후 함수를 실행
+
+        function fn(){
+            console.log('hi');
+        }
+
+        setTimeout(fn, 3000); //3초 뒤 실행
+
+        function showName(name){
+            console.log(name);
+        }
+
+        const tId = setTimeout(showName, 3000, 'kim'); //인수가 필요한 함수는 초 뒤에
+
+        clearTimeout(tId); //예정된 작업 취소
+
+        //delay가 0이라고 바로 실행되는게 아닌 현재 실행 중인 스크립트가 끝난 뒤 실행
+
+        //setInterval - 일정 시간동안 함수를 반복
+
+        const tId2 = setInterval(showName, 3000, 'kim'); //3초마다 반복 
+
+        clearInterval(tId); //예정된 작업 취소
+
+
+        //
+         
+        let num = 0;
+
+        function showTime(){
+            console.log(`접속한지 ${num++} 초 지남`);
+            if(num > 5){
+                clearInterval(time);
+            }
+        }
+
+        const time = setInterval(showTime, 1000);
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+
+        //var & let
+
+        var name1 = 'kim';
+        console.log(name1); //kim
+
+        var name1 = 'lee'; //var는 한번 선언된 변수를 다시 선언 가능
+        console.log(name1); //lee
+
+
+        let name2 = 'kim';
+        console.log(name2); //kim
+
+        //let name1 = 'lee';
+        console.log(name2); //error
+
+
+        console.log(msg); //undefined - var는 선언하기 전에 사용할 수 있다.
+
+        var msg = 'hello'; //호이스팅
+
+        //호이스팅 - 스코프 내부 어디서든 변수 선언은 최상위에 선언된 것 처럼 행동
+        //(메모리 공간을 선언 전에 미리 할당)
+
+        let age = 30;
+
+        // --- Temporal Dead Zone(TDZ) ---
+        function showAge(){
+            console.log(age);
+            //let age = 20; //error
+        }
+        // ------------------------------
+        
+        showAge();
+
+
+        /**
+         * var - 선언과 초기화가 동시에 됨
+         * let - 선언(호이스팅)과 초기화(실제 코드에 도달했을 때)가 분리
+         * const - 선언+초기화+할당
+         **/
+
+         let name;
+         name = 'kim';
+
+         var birthDay;
+         birthDay = 1997;
+
+         //const gender; //error
+         //gender = 'male';
+
+
+        //스코프
+        
+        let age1 = 30;
+
+        if(age > 19){
+            var msg = '성인';
+        }
+
+        console.log(msg); //성인 - let, const는 괄호 밖에서 사용 불가능(블록 스코프)
+
+
+        function add(n1, n2){
+            var result = n1 + n2;
+        }
+
+        add(1, 2);
+        console.log(result); //var도 함수 밖에선 사용 불가능
+
+
+
+
+    </script>
+
+</body>
+</html>

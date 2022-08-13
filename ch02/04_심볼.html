@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+
+        //문자형 프로퍼티 키
+
+        // const user = {
+        //     name : 'kim',
+        //     age : 25,
+        // }
+
+        //console.log(Object.keys(user)); //['name', 'age']
+
+
+        //심볼 - 유일한 식별자
+
+        const id1 = Symbol('id'); //new를 붙이지 않는다
+        const id2 = Symbol('id');
+
+        console.log(id1 == id2); //false
+        console.log(id1 === id2); //false 
+
+
+        //심볼형 프로퍼티 키
+
+        const id0 = Symbol('id');
+
+        const user1 = {
+            name : 'kim',
+            age : 25,
+            [id0] : 'myId',
+        }
+
+        console.log(user1);
+
+        console.log(Object.keys(user1)); //심볼키는 건너뜀
+
+        for(let key in user1){
+            console.log(`${key} : ${user1[key]}`); //심볼키는 건너뜀
+        }
+
+
+        /**
+         * 전역 심볼 Symbol.for()
+         * 하나의 심볼만 보장받을 수 있음
+         * 없으면 만들고, 있으면 가져온다
+         * Symbol 함수는 매번 다른 Symbol 값을 생성하지만
+         * Symbol.for 메소드는 하나를 생성한 뒤 키를 통해 같은 Symbol을 공유
+         **/
+
+         const id3 = Symbol.for('id');
+         const id4 = Symbol.for('id');
+
+         console.log(id3 === id4); //true
+
+         console.log(Symbol.keyFor(id3)); //id
+
+        //description
+
+        const id5 = Symbol('id 입니다');
+
+        console.log(id5.description); //id 입니다
+
+
+        //숨겨진 심볼키 보는법
+
+        const id6 = Symbol('userId');
+
+        const user2 = {
+            name : 'lee',
+            age : 25,
+            [id6] : 'myId',
+        }
+
+        console.log(Object.getOwnPropertySymbols(user2)); //[Symbol(userId)]
+
+        console.log(Reflect.ownKeys(user2)); //심볼키를 포함한 보든 키를 보여줌
+
+
+        //심볼 활용
+
+        //다른 개발자가 만들어 놓은 객체
+
+        const user = {
+            name : 'choi',
+            age : 30,
+        }
+
+        
+        //내가 작업
+
+        // user.showName = function(){};
+        const showName = Symbol('show name');
+        user[showName] = function(){
+            console.log(`my name is ${this.name}`);
+        };
+
+        user[showName](); //my name is choi
+
+
+        //사용자가 접속하면 보는 메세지
+
+        for(let key in user){
+            console.log(`${key} : ${user[key]}`);
+        }
+
+
+
+
+
+
+
+
+
+    </script>
+    
+</body>
+</html>
