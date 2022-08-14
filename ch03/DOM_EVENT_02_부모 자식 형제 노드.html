@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h1>Lorem Ipsum</h1>
+    <h2>What is Lorem Ipsum?</h2>
+
+    <h3>A</h3>
+    
+    <p id="first"> 
+        Lorem Ipsum is simply dummy text of the printing and typesetting 
+        industry. Lorem Ipsum has been the industry's standard 
+        dummy text ever since the 1500s, when an unknown printer 
+        took a galley of type and scrambled it to make a type 
+        specimen <a href="https://www.naver.com" class="link">Naver</a>
+    </p>
+    <p id="second">
+        It has survived not only five centuries, but also the 
+        into electronic typesetting, remaining essentially unchanged.
+    </p>    
+
+    <h3>B</h3>
+    <p>
+        Contrary to popular belief, Lorem Ipsum is not simply random text. 
+        It has roots in a piece of classical Latin literature from 45 BC, 
+        making it over 2000 <a href="https://www.daum.net" class="link">Daum</a> old.
+    </p>
+
+    <h3>C</h3>
+    <p>
+        It is a long established fact that a reader will be distracted by 
+        the readable content of a <a href="https://www.google.com" class="link">google</a> when looking at its layout. 
+    </p>
+    <ul id="color">
+        <li id="red">Red</li>
+        <!-- comment -->
+        <li id="blue">Green</li>
+        <li id="green">Blue</li>
+    </ul>
+
+    <script>
+        
+        //부모 노드
+
+        const red = document.getElementById('red');
+
+        console.log(red.parentNode); //부모 노드중 모든 노드 반환
+        console.log(red.parentElement); //부모 노드중 요소 반환
+        
+        console.log(document.documentElement.parentNode); //#document
+        console.log(document.documentElement.parentElement); //null
+
+
+        //자식 노드
+
+        const ul = document.getElementById('color');
+
+        console.log(ul.childNodes); //자식 노드 반환
+        /**
+            0: text - 스페이스나 줄바꿈도 잡힘
+            1: li#red
+            2: text
+            3: comment - 주석도 반환
+            4: text
+            5: li#green
+            6: text
+            7: li#blue
+            8: text
+            length: 9
+         **/
+
+        console.log(ul.children); //자식 노드중 요소 반환
+        /**
+            0: li#red
+            1: li#green
+            2: li#blue
+        **/
+
+        console.log(ul.firstChild); //#text - 첫번째 노드
+        console.log(ul.firstElementChild); // <li id="red">...</li> - 첫번째 요소 노드
+
+
+        //형제 노드
+
+        const blue = document.getElementById('blue');
+
+        console.log(blue.previousSibling); //이전 형제 노드
+        console.log(blue.nextSibling)//다음 형제 노드
+
+        console.log(blue.previousElementSibling); //<li id="red">...</li> - 이전 형제 요소 노드
+        console.log(blue.nextElementSibling); //<li id="green">...</li> - 이전 형제 요소 노드
+
+        
+    </script>
+
+    <table border="1px" style="border-collapse: collapse; text-align: center; width:350px;">
+        <tr>
+            <th></th>
+            <th>모든 노드</th>
+            <th>요소 노드만</th>
+        </tr>
+        <tr>
+            <th>부모</th>
+            <td>parentNode</td>
+            <td>parentElement</td>
+        </tr>
+        <tr>
+            <th>자식</th>
+            <td>childNodes<br>
+                firstChild<br>
+                lastChild
+            </td>
+            <td>
+                children<br>
+                firstElementChild<br>
+                lastElementChild<br>
+            </td>
+        </tr>
+        <tr>
+            <th>형제</th>
+            <td>
+                previousSibling<br>
+                nextSibling
+            </td>
+            <td>
+                previousElementSibling<br>
+                nextElementSibling
+            </td>
+        </tr>
+    </table>
+
+
+</body>
+</html>

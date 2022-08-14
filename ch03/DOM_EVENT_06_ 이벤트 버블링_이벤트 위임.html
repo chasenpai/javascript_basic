@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        #box{
+            background-color: green;
+            border: 5px solid black;
+            width: 300px;
+            height: 300px;
+        }
+        #list{
+            background-color: orange;
+            border: 5px solid black;
+            width: 200px;
+            height: 150px;
+            margin: 0 auto;
+            margin-top: 65px;
+            line-height: 100px;
+        }
+        #color{
+            background-color: yellow;
+            border: 5px solid black;
+            width: 150px;
+            height: 100px;
+            margin: 0 auto;
+            margin-top: 20px;
+            margin-right: 75px;
+            font-size: 200%;
+            font-weight: bold;;
+        }
+        #box2{
+            background-color: green;
+            border: 5px solid black;
+            width: 300px;
+            height: 100px;
+        }
+        #txt{
+            width: 250px;
+            height: 30px;
+            margin-left: 22px ;
+            margin-top: 30px;
+        }
+        .on{
+            background-color: red;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div id="box">
+        <ul id="list">
+            <li id="color">Red</li>
+        </ul>
+    </div>
+    <br>
+    <br>
+
+    <div id="box2">
+        <input id="txt">
+    </div>
+    <br>
+    <br>
+
+    <div id="box3" style="border: 1px solid black;">
+        <ul id="list2" style="border: 1px solid black;">
+            <li id="red" style="border: 1px solid black;"><a href="#">red</a></li>
+            <li id="blue" style="border: 1px solid black;"><a href="#">blue</a</li>
+            <li id="green" style="border: 1px solid black;"><a href="#">green</a></li>
+            <li id="pink" style="border: 1px solid black;"><a href="#">pink</a></li>
+        </ul>
+    </div>
+
+    <script>
+
+        const box = document.getElementById('box');
+        const list = document.getElementById('list');
+        const color = document.getElementById('color');
+
+        document.body.addEventListener('click', () =>{
+            console.log('1. body');
+        });
+        box.addEventListener('click', () => {
+            console.log('2. box');
+        });
+        list.addEventListener('click', () => {
+            console.log('3. ul');
+        });
+        color.addEventListener('click', () => {
+            console.log('4. li');
+        });
+
+        /**
+           자식 요소에서 발생된 이벤트 객체는 부모와 그 부모를 통해 전파됨(버블링)
+           4. li
+           3. ul
+           2. box
+           1. body
+        **/
+
+
+        //버블링 x - focus, blur, mouseenter, mouseleave 
+        //버블링 o focusin, focusout, mouseover, mouseout
+        
+        const box2 = document.getElementById('box2')
+        const txt = document.getElementById('txt');
+
+        document.body.addEventListener('focusin', () => {
+            console.log('focusin -1. body');
+        });
+        box2.addEventListener('focusin', () => {
+            console.log('focusin -2. div');
+        });
+        txt.addEventListener('focusin', (event) => {
+            //event.stopPropagation(); //버블링 막기
+            console.log('focusin -3. input');
+        });
+        document.body.addEventListener('focusout', () => {
+            console.log('focusout -1. body');
+        });
+        box2.addEventListener('focusout', () => {
+            console.log('focusout -2. div');
+        });
+        txt.addEventListener('focusout', () => {
+            console.log('focusout -3. input');
+        });
+
+
+        //이벤트 위임 - 자신에게서 발생하는 이벤트를 다른 요소에서 처리
+
+        const list2 = document.getElementById('list2');
+        const colors = list2.children;
+
+        function clickHandler(event){
+            console.log('targer', event.target); //이벤트를 발생시키는 요소
+            console.log('currentTarget' , event.currentTarget); //이벤트 핸들러가 등록된 요소
+            
+            let target = event.target;
+
+            if(target.tagName === 'A'){
+                target = target.parentElement;
+            }else if(target === event.currentTarget){
+                return;
+            }
+            
+            for(let c of colors){
+                c.classList.remove("on");
+            }
+            target.classList.add("on");
+        }
+
+        // document.getElementById('red').addEventListener('click', clickHandler);
+        // document.getElementById('blue').addEventListener('click', clickHandler);
+        // document.getElementById('green').addEventListener('click', clickHandler);
+        // document.getElementById('pink').addEventListener('click', clickHandler);
+        document.getElementById('list2').addEventListener('click', clickHandler); //ul에 위임
+
+
+    </script>
+</body>
+</html>

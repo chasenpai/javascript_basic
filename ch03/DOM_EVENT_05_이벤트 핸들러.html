@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <button onclick="alert('click')">클릭1</button>
+    <button onclick="sayHello()">클릭2</button>
+    <button id="btn">클릭3</button>
+    <button id="btn2">클릭4</button>
+    <button id="btn3">클릭5</button>
+    <br>
+
+    <input id="txt" type="text"><br>
+    <input id="txt2" type="text"><br>
+
+    <!--
+    <div id="box" style="width: 100px; height: 100px; border: 2px solid red; position: relative;">
+        <div id="circle" style="width: 10px; height: 10px; 
+        background-color: black;
+        border-radius: 50%; position: absolute;">
+        </div>
+    </div>
+    -->
+
+    <script>
+
+        function sayHello(){
+            alert('Hello');
+        }
+
+
+        const el = document.getElementById('btn');
+        el.onclick = sayHello;
+
+
+        const el2 = document.getElementById('btn2');
+        el2.addEventListener('click', sayHello); //특정 이벤트가 발생되면 핸들러 실행
+
+        // document.addEventListener('DOMContentLoaded', () => {
+        //     document.body.style.backgroundColor = 'red';
+        // })
+        //removeEventListener - 할당된 이벤트를 삭제
+
+
+        const el3 = document.getElementById('btn3');
+        el3.addEventListener('dblclick', sayHello); //더블클릭
+
+        
+        const input1 = document.getElementById('txt');
+        input1.addEventListener('keyup', (event) => { //키입력시, event 객체를 받음
+            console.log(event.key); 
+        });
+
+
+        const input2 = document.getElementById('txt2');
+        input2.addEventListener('focus', () => { //포커스 
+           input2.style.backgroundColor = 'rgba(255, 0, 0, 0.2)';
+        });
+        input2.addEventListener('blur', () => { //포커스를 잃으면
+            input2.style.backgroundColor = null;
+        });
+
+
+        // const box = document.getElementById('box');
+        // const circle = document.getElementById('circle');
+        // box.addEventListener('mousemove', (event) => { //마우스를 움직일 때마다
+        //     circle.style.top = `${event.clientY}px`;
+        //     circle.style.left = `${event.clientX}px`;
+        // });
+
+
+        window.addEventListener('resize', () => { //사이즈가 바뀔 때마다
+            document.body.innerText = 
+            `현재 창 크기는 ${window.innerWidth} x ${window.innerHeight}`;
+        });
+
+    </script>
+
+</body>
+</html>

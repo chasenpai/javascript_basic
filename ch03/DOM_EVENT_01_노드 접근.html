@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <!--
+        DOM(Document Object Model) - 문서 객체 모델
+        html 요소들을 트리 형태로 표시해준다
+    -->
+
+    <h1>Lorem Ipsum</h1>
+    <h2>What is Lorem Ipsum?</h2>
+
+    <h3>A</h3>
+    <p id="first"> 
+        Lorem Ipsum is simply dummy text of the printing and typesetting 
+        industry. Lorem Ipsum has been the industry's standard 
+        dummy text ever since the 1500s, when an unknown printer 
+        took a galley of type and scrambled it to make a type 
+        specimen <a href="#" class="link">book.</a>
+    </p>
+    <p id="second">
+        It has survived not only five centuries, but also the <a href="#" class="link">leap</a> 
+        into electronic typesetting, remaining essentially unchanged.
+    </p>    
+
+    <h3>B</h3>
+    <p>
+        Contrary to popular belief, Lorem Ipsum is not simply random text. 
+        It has roots in a piece of classical Latin literature from 45 BC, 
+        making it over 2000 <a href="#" class="link">years</a> old.
+    </p>
+
+    <h3>C</h3>
+    <p>
+        It is a long established fact that a reader will be distracted by 
+        the readable content of a <a href="#" class="link">page</a> when looking at its layout. 
+    </p>
+
+    <script>
+
+        //문서 접근
+
+        //document.body.style.backgroundColor = 'blue';
+
+        //document.body.style.opacity = '0.5';
+
+        //document.body.style.padding = '100px';
+
+
+        //아이디로 접근
+
+        const el = document.getElementById('first');
+
+        console.log(el); //<p id="first">...</p>
+
+
+        //태그명으로 접근
+
+        //const pList = document.getElementsByTagName('p')
+
+        //console.log(pList); //HTMLCollection(4)
+
+        // for(let p of pList){
+        //     p.style.fontSize = '20px';
+        // }
+
+
+        //클래스명으로 접근
+
+        const cList = document.getElementsByClassName('link');
+
+        console.log(cList); //HTMLCollection(4) [a.link, a.link, a.link, a.link]
+
+        
+        //querySelectorAll - 모든 노드를 가져옴
+        //querySelector - 제일 처음 노드만 가져옴
+
+        console.log(document.querySelectorAll('.link')); //NodeList(4) [a.link, a.link, a.link, a.link]
+        console.log(document.querySelector('.link')); //<a href="#" class="link">book.</a>
+
+        console.log(document.querySelector('h3:nth-of-type(2)')); //<h3>B</h3>
+
+        const pList = document.querySelectorAll('p:nth-of-type(2n)'); //짝수 p만 선택
+
+        for(let p of pList){
+            p.style.color = 'white';
+            p.style.backgroundColor = 'black';
+        }
+
+        pList[1].style.color = 'gray'; //배열은 아니고 이터러블한 컬렉션
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h1>Lorem Ipsum</h1>
+    <h2>What is Lorem Ipsum?</h2>
+
+    <ul id="color">
+        <li id="red">red</li>
+        <li id="blue">blue</li>
+        <li id="green">green</li>
+    </ul>
+
+    <h3>A</h3>
+    <p id="first"> 
+        Lorem Ipsum is simply dummy text of the printing and typesetting 
+        industry. Lorem Ipsum has been the industry's standard 
+        dummy text ever since the 1500s, when an unknown printer 
+        took a galley of type and scrambled it to make a type 
+        specimen <a href="#" class="link">book.</a>
+    </p>
+    <p id="second">
+        It has survived not only five centuries, but also the <a href="#" class="link">leap</a> 
+        into electronic typesetting, remaining essentially unchanged.
+    </p>    
+
+    <h3>B</h3>
+    <p>
+        Contrary to popular belief, Lorem Ipsum is not simply random text. 
+        It has roots in a piece of classical Latin literature from 45 BC, 
+        making it over 2000 <a href="#" class="link">years</a> old.
+    </p>
+
+    <h3>C</h3>
+    <p>
+        It is a long established fact that a reader will be distracted by 
+        the readable content of a <a href="#" class="link">page</a> when looking at its layout. 
+    </p>
+
+    <script>
+
+        const blue = document.getElementById('blue');
+
+        console.log(blue.firstElementChild); //null
+
+        const blueTextNode = blue.firstChild;
+
+        console.log(
+            blueTextNode.nodeName, //#text
+            blueTextNode.nodeType, //3
+            blueTextNode.nodeValue //blue
+        );
+
+        blueTextNode.nodeValue = '파랑';
+
+
+        //const ul = document.getElementById('color');
+
+        // console.log(
+        //     ul.nodeType, //1
+        //     ul.nodeName, //UL
+        //     ul.nodeValue //null
+        // );
+
+        //ul.innerHTML = '<li>RED</li><li>BLUE</li>'; //마크업 적용
+
+
+        //노드 생성, 추가
+
+        const newLi = document.createElement('li');
+
+        newLi.innerHTML = 'green';
+
+        const ul = document.getElementById('color');
+
+        ul.appendChild(newLi); 
+
+
+        const newLi2 = document.createElement('li'); //li 요소 생성
+
+        const newText = document.createTextNode('pink'); //text 노드 생성
+
+        newLi2.appendChild(newText); //li에 text 노드 추가
+
+        ul.appendChild(newLi2); //ul에 li 추가
+
+
+        const newLi3 = document.createElement('li');
+
+        const textNode3 = document.createTextNode('black');
+
+        newLi3.appendChild(textNode3);
+
+        const red = document.getElementById('red');
+
+        ul.insertBefore(newLi3, red); //red 전에 black을 넣음
+
+        ul.appendChild(red); //red가 맨 뒤로 이동
+
+        
+        //노드 복제
+
+        const newBlack = newLi3.cloneNode(); //black을 복제
+
+        ul.appendChild(newBlack); //태그만 복제됨
+
+        const newBlack2 = newLi3.cloneNode(true); //true를 넣으면 자식 노드까지 복제
+
+        ul.appendChild(newBlack2);
+
+
+        //노드 삭제
+
+        ul.removeChild(red);
+        ul.removeChild(newBlack);
+        
+        ul.removeChild(ul.firstElementChild); //첫번째 자식 요소 삭제
+        ul.removeChild(ul.lastElementChild); //마지막 자식 요소 삭제
+
+
+
+
+    </script>
+
+</body>
+</html>
