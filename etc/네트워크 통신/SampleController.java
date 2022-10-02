@@ -78,9 +78,6 @@ public class SampleController {
 
         List<String> commentList = new ArrayList<>();
         commentList.add(comment);
-        commentList.add(comment);
-        commentList.add(comment);
-        commentList.add(comment);
 
         model.addAttribute("commentList", commentList);
 

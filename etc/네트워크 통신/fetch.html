@@ -180,7 +180,7 @@
         }
 
     }
-
+w
     async function sample7(){
 
         const url = "/sample7";
@@ -198,38 +198,6 @@
         $('#commentList').replaceWith(result);
     }
 
-    $(function(){
-
-        $("#search").autocomplete({
-            source : function(request, response){
-                $.ajax({
-                    url : "/sample8/" + $("#search").val(),
-                    type : "GET",
-                    success : function(result){
-                    console.log(result);
-                        response(
-                            $.map(result, function(item){
-                                return{
-                                    label : item,
-                                    value : item,
-                                }
-                            })
-                        );
-                    }
-                });
-            },
-            focus : function(event, ui){
-                return false;
-            },
-            select : function(event, ui){
-                console.log(ui.item);
-            },
-            minLength : 1,
-            delay : 100,
-            autoFocus : true,
-        });
-
-    });
 
 
 </script>
